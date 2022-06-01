@@ -44,13 +44,91 @@ function App() {
     fetchData();
   }
 
+  // const handleCheck = (id) => {
+  // const listItems = items.map((item) => item.id === id ? { ...item, checked: !item.checked } : item);
+  // setItems(listItems); 
+  // }
+
+
+  function onPostUpdated(updatedPost) { 
+
+    if (updatedPost === null) {
+      return;
+    }
+
+    let postsCopy = [...data];
+
+    const index = postsCopy.findIndex((postsCopyPost, currentIndex) => {
+      if (postsCopyPost.postId === updatedPost.postId) {
+        return true;
+      }
+    });
+
+    if (index !== -1) {
+      postsCopy[index] = updatedPost;
+    }
+
+    setData(postsCopy);
+
+    alert(`Uspješno ste uredili objavu!`);
+  }
+
+  // const obrisi = async (id) => {
+  //   try {
+  //     console.log(id);
+  //     setData(data.filter((article) => id !== article.id));
+
+  //     alert('Uspješno ste obrisali objavu!');
+  //     // await deleteDoc(doc(db, 'cars', id))
+
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // function deletePost(postId) {
+  //   const url = `${Constants.API_URL_DELETE_POST_BY_ID}/${postId}`;
+
+  //   fetch(url, {
+  //     method: 'DELETE'
+  //   })
+  //     .then(response => response.json())
+  //     .then(responseFromServer => {
+  //       console.log(responseFromServer);
+  //       onPostDeleted(postId);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       alert(error);
+  //     });
+  // }
+
+  function onPostDeleted(deletedPostPostId) {
+    let postsCopy = [...data];
+
+    const index = postsCopy.findIndex((postsCopyPost, currentIndex) => {
+      if (postsCopyPost.postId === deletedPostPostId) {
+        return true;
+      }
+    });
+
+    if (index !== -1) {
+      postsCopy.splice(index, 1);
+    }
+
+    setData(postsCopy);
+
+    alert('Uspješno ste obrisali objavu!');
+  }
+
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Objave data={data} />} /> 
           <Route path="post" element={<Post createPost={onPostCreated}/>} />
-          <Route path="admin" element={< Lists data={data} />} /> 
+          <Route path="admin" element={< Lists data={data} updatePost={onPostUpdated} onPostDeleted={onPostDeleted} />} /> 
           <Route path="*" element={<Missing />} />
         </Route>
       </Routes>

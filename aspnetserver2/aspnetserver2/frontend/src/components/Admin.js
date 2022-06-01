@@ -4,11 +4,8 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 
 
 const Admin = ({ naslov_oglasa, naziv_firme, lokacija, iskustvo, opis, apliciraj_link, postId, slika_firme }) => {
-    const [view, setView] = useState(true)
-    const redirect = (url) => {
-        const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-        if (newWindow) newWindow.opener = null
-    }
+    const [view, setView] = useState(true) 
+
     return (
         <Container>
             <Row className="justify-content-md-start border border-dark mt-1"  >
@@ -17,7 +14,7 @@ const Admin = ({ naslov_oglasa, naziv_firme, lokacija, iskustvo, opis, apliciraj
                 </Col>
                 <Col xs lg="4">
                     <Row>
-                        <h5> {naslov_oglasa} </h5>
+                        <input> {naslov_oglasa} </input>
                     </Row>
                     <Row>
                         <p > {naziv_firme} </p>
@@ -47,7 +44,7 @@ const Admin = ({ naslov_oglasa, naziv_firme, lokacija, iskustvo, opis, apliciraj
                     </Row>
                 </Col>
                 <Col xs lg="2" className="justify-content-end">
-                    <Button className="mt-3" variant="outline-success"/*  onClick={ } */ >Uredi</Button> 
+                    <Button className="mt-3" variant="outline-success"   >Uredi</Button> 
                     <Button className="mt-3" variant="outline-danger"/*  onClick={ } */ >Obriši</Button>
                 </Col>
                 <Row className="justify-content-md-center">
