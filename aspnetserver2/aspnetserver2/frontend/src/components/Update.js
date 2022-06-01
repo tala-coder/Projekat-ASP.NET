@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Constants from '../utilities/Constants'
 import { Button } from 'react-bootstrap';
 
-
-const Post = ({ createPost }) => {
+// convert to Update
+const Update = ({ createPost }) => {
 
   const initialFormData = Object.freeze({
     naslov_oglasa: "",
@@ -104,4 +104,4 @@ const Post = ({ createPost }) => {
   );
 }
 
-export default Post
+export default Update

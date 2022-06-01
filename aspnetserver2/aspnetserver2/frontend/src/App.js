@@ -6,7 +6,7 @@ import Objave from './components/Objave';
 import Missing from './components/Missing';
 import Layout from './components/Layout';
 import Post from './components/Post';
-import Admin from './components/Admin';
+import Lists from './components/Lists';
 
 // https://localhost:7033
 
@@ -50,7 +50,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Objave data={data} />} /> 
           <Route path="post" element={<Post createPost={onPostCreated}/>} />
-          <Route path="admin" element={<Admin />} /> 
+          <Route path="admin" element={< Lists data={data} />} /> 
           <Route path="*" element={<Missing />} />
         </Route>
       </Routes>

@@ -1,14 +1,14 @@
 import React from 'react'
-import Objava from './Objava'
+import Admin from './Admin'
 
 
-const Objave = ({ data }) => {
+const Lists = ({ data }) => {
     return (
         <>
             {data.map((post) => {
                 return (
                     <article key={post.postId}>
-                        <Objava article={post} {...post} />
+                        <Admin car={post} {...post} />
                     </article>
                 )
             })}
@@ -16,4 +16,4 @@ const Objave = ({ data }) => {
     )
 }
 
-export default Objave
+export default Lists
