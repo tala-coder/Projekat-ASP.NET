@@ -10,13 +10,13 @@ using aspnetserver.Data;
 namespace aspnetserver.Data.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220530172505_FirstMigration")]
+    [Migration("20211110131330_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.5");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
 
             modelBuilder.Entity("aspnetserver.Data.Post", b =>
                 {

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "u4fSQOpUadPzARmA17FPVwOAmCtyifT6njP2qz0VYbQ=",
+  "Source": "aspnetserver2",
+  "BasePath": "_content/aspnetserver2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

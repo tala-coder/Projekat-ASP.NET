@@ -8,7 +8,7 @@ namespace aspnetserver2.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder) => dbContextOptionsBuilder.UseSqlite("Data Source=./Data/AppDB.db");
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             Post[] postsToSeed = new Post[6];
 
@@ -27,6 +27,6 @@ namespace aspnetserver2.Data
             }
 
             modelBuilder.Entity<Post>().HasData(postsToSeed);
-        }
+        }*/
     }
 }
