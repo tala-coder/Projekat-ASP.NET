@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Constants from '../utilities/Constants'
 
 
-const Post = ({createPost}) => {
+const Post = ({ createPost }) => {
 
   const initialFormData = Object.freeze({
     naslov_oglasa: "",
@@ -20,7 +20,7 @@ const Post = ({createPost}) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
+    }); 
   };
 
   const handleSubmit = (e) => {
@@ -33,7 +33,7 @@ const Post = ({createPost}) => {
       lokacija: formData.lokacija,
       iskustvo: formData.iskustvo,
       opis: formData.opis,
-      apliciraj_link: formData.apliciraj_link, 
+      apliciraj_link: formData.apliciraj_link,
       slika_firme: formData.slika_firme,
     };
 
@@ -55,7 +55,7 @@ const Post = ({createPost}) => {
         alert(error);
       });
 
-      createPost(postToCreate);
+    createPost(postToCreate);
   };
 
   return (
@@ -85,12 +85,17 @@ const Post = ({createPost}) => {
       <div className="mt-4">
         <label className="h4 form-label">Opis</label>
         <input value={formData.opis} name="opis" type="textarea" className="form-control" onChange={handleChange} />
+      </div> 
+
+      <div className="mt-4">
+        <label className="h4 form-label">Link profilne</label>
+        <input value={formData.slika_firme} name="slika_firme" type="textarea" className="form-control" onChange={handleChange} />
       </div>
 
-      {/* <div className="mt-4">
-        <label className="h4 form-label">Opis</label>
-        <input value={formData.opis} name="opis" type="textarea" className="form-control" onChange={handleChange} />
-      </div> */}
+      <div className="mt-4">
+        <label className="h4 form-label">Link za apliciranje</label>
+        <input value={formData.apliciraj_link} name="apliciraj_link" type="textarea" className="form-control" onChange={handleChange} />
+      </div>
 
       <button onClick={handleSubmit} className="btn btn-dark btn-lg w-100 mt-5">Submit</button>
     </form>
